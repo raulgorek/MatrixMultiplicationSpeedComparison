@@ -2,19 +2,19 @@
 A small Test written to compare the speed of Numpy, PyTorch, Tensorflow and MATLAB.
 
 ## How to use
-1. 
+1. (In Bash) 
 ``` bash
 pip install -r requirements.txt
 ```
 
-2. 
+2. (In Matlab)
 ``` matlab
 pyenv('Version', '/path/to/your/python');
 ```
 
 3. Install Machine Learning and Statistics Toolbox for Matlab. Otherwise only Python wll run through
 
-4.
+4. (In Matlab)
 ```matlab
 >> run_and_compare
 ```
