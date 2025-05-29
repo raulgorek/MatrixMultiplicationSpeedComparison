@@ -21,7 +21,8 @@ pyenv('Version', '/path/to/your/python');
 
 ## Results
 The results in this repo come from an M1 Pro with 8 CPU Cores and 16 GB RAM.
-As one can clearly see the Usage of the Accelerate Framework in PyTorch makes it unbeatable.
+As one can clearly see the Usage of the Accelerate Framework in PyTorch makes it unbeatable for big matrices.
+In the small sizes numpy is suprisingly the fastest.
 
 ![Speed](results/M1Pro8CoresPerformance.png)
 ![Speed](results/M1Pro8CoresTime.png)
