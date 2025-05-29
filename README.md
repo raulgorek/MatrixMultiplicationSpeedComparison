@@ -3,21 +3,21 @@ A small Test written to compare the speed of Numpy, PyTorch, Tensorflow and MATL
 
 ## How to use
 1. 
-´´´bash
+``` bash
 pip install -r requirements.txt
-´´´
+```
 
 2. 
-´´´matlab
+``` matlab
 pyenv('Version', '/path/to/your/python');
-´´´
+```
 
 3. Install Machine Learning and Statistics Toolbox for Matlab. Otherwise only Python wll run through
 
 4.
-´´´matlab
+```matlab
 >> run_and_compare
-´´´
+```
 
 ## Results
 The results in this repo come from an M1 Pro with 8 CPU Cores and 16 GB RAM.
