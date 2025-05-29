@@ -1,43 +1,43 @@
-% Schritt 1: Starte Python-Benchmark
-py.importlib.import_module('benchmark');
-py.benchmark.run_benchmark();
+% % Schritt 1: Starte Python-Benchmark
+% py.importlib.import_module('benchmark');
+% py.benchmark.run_benchmark();
+% 
+% % Schritt 2: Lade Python-Ergebnisse
+% data = readtable('benchmark_results.csv');
+% 
+% % Schritt 3: MATLAB-Benchmark mit denselben Größen
+% disp("Starte MATLAB-Benchmark...");
+% ns = data.n;
+% num_runs = 20;
+% matlab_mean = zeros(size(ns));
+% matlab_std = zeros(size(ns));
+% matlab_ci = zeros(size(ns));
+% 
+% for i = 1:length(ns)
+%     n = ns(i);
+%     times = zeros(num_runs, 1);
+%     for r = 1:num_runs
+%         A = rand(n);
+%         B = rand(n);
+%         t1 = tic;
+%         C = A * B;
+%         times(r) = toc(t1);
+%     end
+%     matlab_mean(i) = mean(times);
+%     matlab_std(i) = std(times, 1);
+%     ci = tinv(0.975, num_runs-1) * matlab_std(i) / sqrt(num_runs);
+%     matlab_ci(i) = ci;
+% end
+% 
+% % Ergebnisse hinzufügen
+% data.matlab_mean = matlab_mean;
+% data.matlab_std = matlab_std;
+% data.matlab_ci = matlab_ci;
+% 
+% % Als neue CSV speichern (optional)
+% writetable(data, 'benchmark_results_all.csv');
 
-% Schritt 2: Lade Python-Ergebnisse
-data = readtable('benchmark_results.csv');
-
-% Schritt 3: MATLAB-Benchmark mit denselben Größen
-disp("Starte MATLAB-Benchmark...");
-ns = data.n;
-num_runs = 20;
-matlab_mean = zeros(size(ns));
-matlab_std = zeros(size(ns));
-matlab_ci = zeros(size(ns));
-
-for i = 1:length(ns)
-    n = ns(i);
-    times = zeros(num_runs, 1);
-    for r = 1:num_runs
-        A = rand(n);
-        B = rand(n);
-        t1 = tic;
-        C = A * B;
-        times(r) = toc(t1);
-    end
-    matlab_mean(i) = mean(times);
-    matlab_std(i) = std(times, 1);
-    ci = tinv(0.975, num_runs-1) * matlab_std(i) / sqrt(num_runs);
-    matlab_ci(i) = ci;
-end
-
-% Ergebnisse hinzufügen
-data.matlab_mean = matlab_mean;
-data.matlab_std = matlab_std;
-data.matlab_ci = matlab_ci;
-
-% Als neue CSV speichern (optional)
-writetable(data, 'benchmark_results_all.csv');
-
-% data = readtable("benchmark_results_all.csv");
+data = readtable("benchmark_results_all.csv");
 %% Plot 1: Laufzeit
 figure;
 loglog(data.n, data.numpy_mean, '-o', 'DisplayName', 'NumPy'); hold on;
