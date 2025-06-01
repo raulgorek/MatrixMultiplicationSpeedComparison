@@ -55,17 +55,21 @@ def run_benchmark():
         torch_mean, torch_std, torch_ci = conf_interval(torch_times)
         tf_mean, tf_std, tf_ci = conf_interval(tf_times)
 
+        flops = 2 * (n ** 3)
         results.append({
             "n": n,
             "numpy_mean": numpy_mean,
             "numpy_std": numpy_std,
             "numpy_ci": numpy_ci,
+            "numpy_gflops": flops / (numpy_mean * 1e9),
             "torch_mean": torch_mean,
             "torch_std": torch_std,
             "torch_ci": torch_ci,
+            "torch_gflops": flops / (torch_mean * 1e9),
             "tf_mean": tf_mean,
             "tf_std": tf_std,
-            "tf_ci": tf_ci
+            "tf_ci": tf_ci,
+            "tf_gflops": flops / (tf_mean * 1e9)
         })
 
     # Speichern als CSV
